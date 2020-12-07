@@ -107,8 +107,7 @@ Risorsa AWS al seguente link: https://aws.amazon.com/it/quickstart/architecture/
 Dopo la creazione dei tre bastion, collegarsi a quest'utlimi utilizzando le chiavi private dei bastion host create in precedenza.
 
 ```
-ssh -i .ssh/linuxbastion-1a.pem ec2-user@ec2-54-229-241-129.eu-west-1.compute.amazonaws.com
-Last login: Thu Jan 30 12:58:57 2020 from 121.167.43.195.dial.static.ip.kpnqwest.it
+ssh -i .ssh/linuxbastion-1a.pem ec2-user@ec2-***-***-***-***.eu-west-1.compute.amazonaws.com
 
        __|  __|_  )
        _|  (     /   Amazon Linux 2 AMI
@@ -119,8 +118,7 @@ Dopo connttersi al managed node nella rete privata, quindi utilizzando la chiave
 Nel caso mostrato si è nella AZ 1a.
 
 ```
-ssh -i .ssh/ekscluster-managed-1a.pem ec2-user@192.168.100.142
-Last login: Thu Jan 30 13:01:34 2020 from ip-192-168-25-147.eu-west-1.compute.internal
+ssh -i .ssh/ekscluster-managed-1a.pem ec2-user@***.***.***.***
 
        __|  __|_  )
        _|  (     /   Amazon Linux 2 AMI
