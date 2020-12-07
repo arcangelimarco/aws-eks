@@ -42,7 +42,7 @@ Scelta architetturale:
 
 
 La documentazione è composta da quattro documenti:  
-- il primo "PREREQUISITI" dove sono elencati tutti i prerequisiti e le configurazioni necessarie,  
-- il secondo "INSTALLAZIONE" dove sono elencati tutti i passi per installare il cluster EKS,  
+- il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
+- il secondo "INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
 - il terzo "CONNESSIONE ALL'EKS CLUSTER" dove sono elencati i passi per connettersi al cluster EKS,  
 - il quarto "DEPLOY DELLE APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.
