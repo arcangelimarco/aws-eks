@@ -8,8 +8,7 @@
 AWS EKS è il servizio di containerizzazione offerto da AWS, oltre ad ECS.  
 Documentazione sito AWS: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html  
 
-Scelta architetturale cliente:  
-3 cluster EKS per i 3 ambienti: production, uat, development  
+Scelta architetturale:  
 
 1. Ambiente produzione
 	- Cluster EKS con 2 nodegroup (no Fargate)
@@ -68,7 +67,7 @@ kubectl completion bash >>  ~/.bash_completion
 . ~/.bash_completion
 ```
 
-Nel caso ci fossero delle creds spurie:  
+Nel caso ci fossero delle credentials spurie:  
 ```
 rm -vf ${HOME}/.aws/credentials
 ```
@@ -121,9 +120,17 @@ Default output format [None]: <YOUR-DEFAULT-OUTPUT>
 Download dell'iam-authenticator:  
 ```
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
+```
+
+Verifica del file binario scaricato:
+```
 curl -o aws-iam-authenticator.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator.sha256
 openssl sha1 -sha256 aws-iam-authenticator
 cat aws-iam-authenticator.sha256
+```
+
+Ultime operazioni:  
+```
 chmod +x ./aws-iam-authenticator
 mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
 echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
@@ -133,6 +140,10 @@ test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is 
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile
 echo "export AWS_REGION=${AWS_REGION}" | tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
+```
+
+Verifica: l’ARN e la REGION devono essere congrui con le credenziali del proprio account:  
+```
 aws configure get default.region
 aws sts get-caller-identity
 {
@@ -141,5 +152,3 @@ aws sts get-caller-identity
     "Arn": "arn:aws:iam::***********:user/*******"
 }
 ```
-
-L’ARN e la REGION deve essere congruo con le credenziali del proprio account.  
