@@ -32,7 +32,7 @@ kubectl apply -f <directory-di-destinazione>
 ```
 
 ## Importante  
-Se si dovessero cambiare i parametri dei file nel repository bitbucker cliente:  
+Se si dovessero cambiare i parametri dei file nel repository bitbucket del cliente:  
 - rieseguire la build da AWS CodeBuild,  
 - sostituire nel deployment.yaml l'immagine nuova creata dell'applicazione (reperibile da ECR e filtrando per il nome dell'applicazione).  
 
