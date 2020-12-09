@@ -48,5 +48,9 @@ docker rm <CONTAINER ID>
 
 Dopo, rimuovere l'immagine:  
 ```
+docker images
+REPOSITORY                                             TAG                 IMAGE ID            CREATED             SIZE
+************.dkr.ecr.eu-west-1.amazonaws.com/kubectl   ***********         ***********         X months ago        XXXMB
+
 docker rmi <IMAGE ID>
 ```
