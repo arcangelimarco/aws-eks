@@ -78,7 +78,7 @@ aws --version
 Per configurare le credenziali AWS si fa uso delle chiavi del proprio profilo utente IAM, reperibili dalla console AWS.  
 In alternativa se ne può crearne un paio nuove, sempre dalla console AWS.  
 
-Nel caso ci fossero delle credentials spurie:  
+Nel caso ci fossero delle credenziali spurie:  
 ```
 rm -vf ${HOME}/.aws/credentials
 ```
