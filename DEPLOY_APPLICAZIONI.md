@@ -73,7 +73,7 @@ docker rmi <IMAGE ID>
 
 ## Connessione all'applicazione deployata
 
-Il tipo di porta utilizzata dalle applicazioni è NodePort.
+Il tipo di porta utilizzata dalle applicazioni è NodePort.  
 Per visualizzare sul nostro PC la pagina dell'applicazione prendiamo l'indirizzo dell'ALB, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
 Riconoscibile dai tag:
 ```
@@ -101,7 +101,7 @@ Name:	******************************.sk1.eu-west-1.eks.amazonaws.com
 Address: 111.111.111.111
 ```
 
-Il <nome-dns-applicazione> può essere ricavato dalla configurazione di nginx.conf nel repository bitbucket cliente nel campo "server_name".  
+Il "nome-dns-applicazione" può essere ricavato dalla configurazione di nginx.conf nel repository bitbucket cliente nel campo "server_name".  
 ```
 echo "******************************.sk1.eu-west-1.eks.amazonaws.com    <nome-dns-applicazione>" >> /etc/hosts
 curl -kv http://<nome-dns-applicazione>:80
