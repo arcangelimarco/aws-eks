@@ -45,4 +45,8 @@ La documentazione è composta da quattro documenti:
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
 - il secondo "INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
 - il terzo "CONNESSIONE_EKS" dove sono elencati i passi per connettersi al cluster EKS,  
-- il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.
+- il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.  
+
+
+## Nota
+Per policy, abilitare nell'ambiente AWS cliente per il proprio utente IAM l'autenticazione MFA.
