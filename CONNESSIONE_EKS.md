@@ -24,7 +24,10 @@ echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config' >> ~/.bashrc
 ```
 
 Il file config deve aver riportato i dati del cluster EKS. Il suddetto file è stato caricato nel repository nella directory "config-auth-eks-cluster".  
-Il parametro EKS_CERTIFICATE_PRODUCTION_PLACEHOLDER si può rimpiazzare con il certificato presente nel Secret Manager della console AWS.  
+Parametri d'interesse:  
+- EKS_CERTIFICATE_PLACEHOLDER: si può rimpiazzare con il certificato presente nel Secret Manager della console AWS,  
+- API server endpoint: facilmente reperibile dalla console AWS nella console del servizio EKS,  
+- il nome del cluster: specifico per le esigenze di nomenclatura del cliente.  
 
 
 ## Metodo alternativo
