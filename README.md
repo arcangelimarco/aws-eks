@@ -2,9 +2,6 @@
 
 ## AWS EKS Project
 
-
-### DOCUMENTAZIONE PROGETTO AWS EKS
-
 AWS EKS è il servizio di containerizzazione offerto da AWS, oltre ad ECS.  
 Documentazione sito AWS: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html  
 
