@@ -36,16 +36,7 @@ Scelta architetturale:
 		Maximum size:   3 nodes  
 		Desired size:   1 nodes  
 
-Il tutto è bilanciato da un ALB che fa da ingress, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
-Riconoscibile dai tag:
-```
- ingress.k8s.aws/stack 				<namespace>/<namespace>-alb-ingress
- kubernetes.io/ingress-name 			<namespace>-alb-ingress
- ingress.k8s.aws/cluster        		<eksclustername>
- kubernetes.io/cluster/<eksclustername>		owned
- ingress.k8s.aws/resource 			LoadBalancer
- kubernetes.io/namespace        		<namespace>
-```
+Il tutto è bilanciato da un ALB che fa da ingress.
 
 La documentazione è composta da quattro documenti:  
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
