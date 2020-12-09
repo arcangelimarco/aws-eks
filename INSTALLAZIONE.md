@@ -66,7 +66,7 @@ kubectl apply -f cluster-autoscaler-autodiscover.yaml
 kubectl -n kube-system annotate deployment.apps/cluster-autoscaler cluster-autoscaler.kubernetes.io/safe-to-evict="false"
 ```
 
-Editare il cluster-autoscaler rimpiazzando il "YOUR CLUSTER NAME" con il nome del cluster e aggiungendo le seguenti opzioni:
+Editare il cluster-autoscaler rimpiazzando il "YOUR CLUSTER NAME" con il nome del proprio cluster e dopo aggiungere le seguenti opzioni:
 ```
 --balance-similar-node-groups
 --skip-nodes-with-system-pods=false
