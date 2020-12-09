@@ -11,6 +11,11 @@ Sotto sono riportati i path e i nomi dei vari file yaml delle applicazioni prese
 
 Un esempio dei tre file yaml è presente in questo repository nella directory "deploy-yaml-applicazione-esempio".  
 
+Parametri d'interesse:  
+- il nome dell'applicazione: informazione data dal cliente,  
+- il nome del namespace in cui giace l'applicazione: informazione data dal cliente,  
+- IMAGE_PLACEHOLDER: l'image URI facilmente reperibile dal servizio ECR della console AWS.  
+Si noti che dopo ogni build applicativo l'image URI cambia, quindi assicurarsi sempre di prendere l'URI più recente.  
 
 ## Scaricare i file yaml da s3  
 
