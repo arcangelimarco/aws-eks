@@ -36,4 +36,17 @@ Se si dovessero cambiare i parametri dei file nel repository bitbucket del clien
 - rieseguire la build da AWS CodeBuild,  
 - sostituire nel deployment.yaml l'immagine nuova creata dell'applicazione (reperibile da ECR e filtrando per il nome dell'applicazione).  
 
-Uscire, stoppare e rimuovere il container una volta concluso il lavoro.
+Uscire, stoppare e rimuovere il container una volta concluso il lavoro:  
+```
+docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+************        ************        "bash"              19 seconds ago      Up 19 seconds                           kubectl
+
+docker stop <CONTAINER ID>
+docker rm <CONTAINER ID>
+```
+
+Dopo, rimuovere l'immagine:  
+```
+docker rmi <IMAGE ID>
+```
