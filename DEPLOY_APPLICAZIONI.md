@@ -1,4 +1,4 @@
-# DEPLOY DELLE APPLICAZION
+# DEPLOY DELLE APPLICAZIONI
 
 La pipeline cliente presenta un Dockerfile nei repository bitbucket che viene buildata da AWS tramire il servizio CodeBuild.  
 I file vengono estratti dal servizio di storage object S3.  
