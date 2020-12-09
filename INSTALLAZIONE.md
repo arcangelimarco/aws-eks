@@ -38,8 +38,8 @@ senza il flag:
 ```
 --managed
 ```
-non supportato con questa attributo.  
-Fonte: https://eksctl.io/usage/vpc-networking/
+non supportato con questo attributo.  
+Fonte: https://eksctl.io/usage/vpc-networking/  
 
 Se si volesse creare i managed nella Subnet Pubblica il comando è il seguente (uno per ogni AZ (1a,1b,1c)):  
 ```
