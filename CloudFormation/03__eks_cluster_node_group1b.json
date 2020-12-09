@@ -1,0 +1,97 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "EKS Managed Nodes (SSH access: true)",
+	"Resources": {
+		"ManagedNodeGroup": {
+			"Type": "AWS::EKS::Nodegroup",
+			"Properties": {
+				"ClusterName": "eksnamecluster",
+				"NodegroupName": "ng-eu-west-1b",
+				"ScalingConfig": {
+					"MinSize": 1,
+					"MaxSize": 1,
+					"DesiredSize": 1
+				},
+				"Subnets": [
+					"subnet-*************"
+				],
+				"InstanceTypes": [
+					"t2.micro"
+				],
+				"AmiType": "AL2_x86_64",
+				"RemoteAccess": {
+					"Ec2SshKey": "keynameeksnodegroups"
+				},
+				"NodeRole": {
+					"Fn::GetAtt": "NodeInstanceRole.Arn"
+				},
+				"Labels": {
+					"alpha.eksctl.io/cluster-name": "eksnamecluster",
+					"alpha.eksctl.io/nodegroup-name": "ng-eu-west-1b"
+				},
+				"Tags": {
+					"alpha.eksctl.io/nodegroup-name": "ng-eu-west-1b",
+					"alpha.eksctl.io/nodegroup-type": "managed"
+				}
+			}
+		},
+		"NodeInstanceRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"AssumeRolePolicyDocument": {
+					"Statement": [
+						{
+							"Action": [
+								"sts:AssumeRole"
+							],
+							"Effect": "Allow",
+							"Principal": {
+								"Service": [
+									"ec2.amazonaws.com"
+								]
+							}
+						}
+					],
+					"Version": "2012-10-17"
+				},
+				"ManagedPolicyArns": [
+					"arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+					"arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+					"arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+				],
+				"Path": "/"
+			}
+		},
+		"PolicyAutoScaling": {
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyDocument": {
+					"Statement": [
+						{
+							"Action": [
+								"autoscaling:DescribeAutoScalingGroups",
+								"autoscaling:DescribeAutoScalingInstances",
+								"autoscaling:DescribeLaunchConfigurations",
+								"autoscaling:DescribeTags",
+								"autoscaling:SetDesiredCapacity",
+								"autoscaling:TerminateInstanceInAutoScalingGroup",
+								"ec2:DescribeLaunchTemplateVersions"
+							],
+							"Effect": "Allow",
+							"Resource": "*"
+						}
+					],
+					"Version": "2012-10-17"
+				},
+				"PolicyName": {
+					"Fn::Sub": "${AWS::StackName}-PolicyAutoScaling"
+				},
+				"Roles": [
+					{
+						"Ref": "NodeInstanceRole"
+					}
+				]
+			}
+		}
+	}
+}
