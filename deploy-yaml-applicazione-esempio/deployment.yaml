@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nome-applicazione
+  labels:
+    app: nome-applicazione
+  namespace: namespace-applicazione
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nome-applicazione
+  template:
+    metadata:
+      labels:
+        app: nome-applicazione
+    spec:
+      containers:
+      - name: nome-applicazione
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "640Mi"
+            cpu: "250m"
+          limits:
+            memory: "1280Mi"
+            cpu: "750m"
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 70
+          timeoutSeconds: 60
+          successThreshold: 1
+          failureThreshold: 5
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 70
+          timeoutSeconds: 30
+          successThreshold: 1
+          failureThreshold: 5
+      nodeSelector:
+        application: web
