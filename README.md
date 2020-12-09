@@ -39,12 +39,12 @@ Scelta architetturale:
 Il tutto è bilanciato da un ALB che fa da ingress, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
 Riconoscibile dai tag:
 ```
- ingress.k8s.aws/stack 				websites/websites-alb-ingress
- kubernetes.io/ingress-name 			websites-alb-ingress
- ingress.k8s.aws/cluster        		eks-01-production
- kubernetes.io/cluster/eks-01-production 	owned
+ ingress.k8s.aws/stack 				<namespace>/<namespace>-alb-ingress
+ kubernetes.io/ingress-name 			<namespace>-alb-ingress
+ ingress.k8s.aws/cluster        		<eksclustername>
+ kubernetes.io/cluster/<eksclustername>		owned
  ingress.k8s.aws/resource 			LoadBalancer
- kubernetes.io/namespace        		websites
+ kubernetes.io/namespace        		<namespace>
 ```
 
 La documentazione è composta da quattro documenti:  
