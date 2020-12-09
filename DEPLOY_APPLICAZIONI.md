@@ -3,13 +3,13 @@
 La pipeline cliente presenta un Dockerfile nei repository bitbucket che viene buildata da AWS tramire il servizio CodeBuild.  
 I file vengono estratti dal servizio di storage object S3.  
 
-Path e nomi dei file yaml delle applicazioni presenti di S3:  
+Sotto sono riportati i path e i nomi dei vari file yaml delle applicazioni presenti di S3 da deployare sul cluster EKS:  
 - s3://cn-configs-repository/eks/<nome-applicazione>  
   - deployment.yaml  
   - service.yaml  
   - hpa.yaml  
 
-Un esempio dei tre file yaml di un'applicazione è presente in questo repository.  
+Un esempio dei tre file yaml è presente in questo repository nella directory "deploy-yaml-applicazione-esempio".  
 
 
 ## Scaricare i file yaml da s3  
