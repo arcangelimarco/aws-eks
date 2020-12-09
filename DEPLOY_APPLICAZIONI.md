@@ -70,3 +70,39 @@ REPOSITORY                                             TAG                 IMAGE
 
 docker rmi <IMAGE ID>
 ```
+
+## Connessione all'applicazione deployata
+
+Il tipo di porta utilizzata dalle applicazioni è NodePort.
+Per visualizzare sul nostro PC la pagina dell'applicazione prendiamo l'indirizzo dell'ALB, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
+Riconoscibile dai tag:
+```
+ ingress.k8s.aws/stack 	      			      <namespace>/<namespace>-alb-ingress
+ kubernetes.io/ingress-name 			        <namespace>-alb-ingress
+ ingress.k8s.aws/cluster        		      <eksclustername>
+ kubernetes.io/cluster/<eksclustername>		owned
+ ingress.k8s.aws/resource 			          LoadBalancer
+ kubernetes.io/namespace        		      <namespace>
+```
+
+Aggiungiamo pertanto l'indirizzo pubblico del loadbalancer in combinazione con il nome dns dell'applicazione al file hosts del nostro PC.  
+Sotto si è preso come esempio l'IP 111.111.111.111  
+```
+nslookup ******************************.sk1.eu-west-1.eks.amazonaws.com
+Server:		***.***.***.***
+Address:	***.***.***.***:53
+
+Non-authoritative answer:
+Name:	******************************.sk1.eu-west-1.eks.amazonaws.com
+Address: ***.***.***.***
+Name:	******************************.sk1.eu-west-1.eks.amazonaws.com
+Address: ***.***.***.***
+Name:	******************************.sk1.eu-west-1.eks.amazonaws.com
+Address: 111.111.111.111
+```
+
+Il <nome-dns-applicazione> può essere ricavato dalla configurazione di nginx.conf nel repository bitbucket cliente nel campo "server_name".  
+```
+echo "******************************.sk1.eu-west-1.eks.amazonaws.com    <nome-dns-applicazione>" >> /etc/hosts
+curl -kv http://<nome-dns-applicazione>:80
+```
