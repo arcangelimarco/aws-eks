@@ -77,7 +77,7 @@ Comando:
 kubectl -n kube-system edit deployment.apps/cluster-autoscaler
 ```
 
-An example below:
+Si riporta sotto un esempio:  
 ```
     spec:
       containers:
@@ -114,7 +114,7 @@ ssh -i .ssh/linuxbastion-1a.pem ec2-user@ec2-***-***-***-***.eu-west-1.compute.a
       ___|\___|___|
 ```
 
-Dopo connttersi al managed node nella rete privata, quindi utilizzando la chiave privata del managed-1[a,b,c].  
+Dopo connttersi al managed node nella subnet privata, quindi utilizzando la chiave privata del managed-1[a,b,c].  
 Nel caso mostrato si è nella AZ 1a.
 
 ```
