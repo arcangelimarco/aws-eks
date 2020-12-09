@@ -1,7 +1,7 @@
 # INSTALLAZIONE
 
 Per il progetto si è scelto di creare degli script automatici usando i tools IaaC AWS CloudFormation e Terraform.
-In questo repository sono stati caricati tali script e in più i moduli per Fargate, anche se non utilizzati.
+In questo repository sono stati caricati tali script e in più i moduli per Fargate, anche se non utilizzati. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
 
 In questo documento invece si descrive la procedura manuale per l'installazione di un cluster EKS senza l'utilizzo di script già preconfigurati.
 
