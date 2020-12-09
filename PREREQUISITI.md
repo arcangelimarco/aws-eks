@@ -128,3 +128,6 @@ aws sts get-caller-identity
     "Arn": "arn:aws:iam::***********:user/*******"
 }
 ```
+
+## Nota
+Per policy, abilitare nell'ambiente AWS cliente per il proprio utente IAM l'autenticazione MFA.
