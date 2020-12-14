@@ -79,18 +79,18 @@ kubectl -n kube-system edit deployment.apps/cluster-autoscaler
 
 Si riporta sotto un esempio:  
 ```
-    spec:
-      containers:
-      - command:
-        - ./cluster-autoscaler
-        - --v=4
-        - --stderrthreshold=info
-        - --cloud-provider=aws
-        - --skip-nodes-with-local-storage=false
-        - --expander=least-waste
-        - --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/<YOUR CLUSTER NAME>
-        - --balance-similar-node-groups
-        - --skip-nodes-with-system-pods=false
+spec:
+  containers:
+  - command:
+    - ./cluster-autoscaler
+    - --v=4
+    - --stderrthreshold=info
+    - --cloud-provider=aws
+    - --skip-nodes-with-local-storage=false
+    - --expander=least-waste
+    - --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/<YOUR CLUSTER NAME>
+    - --balance-similar-node-groups
+    - --skip-nodes-with-system-pods=false
 ```
 
 Il tag per la versione si deve adeguare alle proprie esigenze:  
