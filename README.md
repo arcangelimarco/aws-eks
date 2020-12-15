@@ -40,7 +40,7 @@ Il tutto è bilanciato da un ALB che fa da ingress.
 
 La pipeline cliente è composta da:  
 - un project-artifact configurato su AWS CodeBuild collegato al repository bitbucker, si generano gli artifact e si caricano in AWS S3,  
-- un project-build configurato su AWS CodeBuild collegato al docker repository bitbucker, si builda il docker dal Dockerfile e si pusha l'immagine buildata in ECR (che servirà al manifest yaml delle applicazioni per il pull della stessa su eks).  
+- un project-build configurato su AWS CodeBuild collegato al docker repository bitbucker, si esegue la build del container dal Dockerfile e si esegue la push dell'immagine in ECR (che servirà al manifest yaml delle applicazioni per il pull della stessa sul cluster EKS).  
 
 La documentazione è composta da quattro documenti:  
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
