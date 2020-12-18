@@ -42,11 +42,15 @@ La pipeline cliente è composta da:
 - un project-artifact configurato su AWS CodeBuild collegato al repository bitbucker, si generano gli artifact e si caricano in AWS S3 (s3://cn-artifacts-repository),  
 - un project-build configurato su AWS CodeBuild collegato al docker repository bitbucker, si esegue la build del container dal Dockerfile e si esegue la push dell'immagine in ECR (che servirà ai manifest yaml delle applicazioni per il pull della stessa sul cluster EKS).  
 
+## Nota
+Si è accennato di automatizzare il processo con Jenkins per permettere a quest'ultimo di far da trigger per il CodeBuild AWS. In questo modo eseguendo la build del Jenkins job si avrebbero in modo automatico gli artifact e la docker image.  
+In questo caso, il cliente metterà a disposizione il codice pipeline da caricare poi nel Jenkins master server.  
+
 La documentazione è composta da quattro documenti:  
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
 - il secondo "INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
 - il terzo "CONNESSIONE_EKS" dove sono elencati i passi per connettersi al cluster EKS,  
 - il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.  
 
-## Nota
+## Importante
 Per policy, abilitare nell'ambiente AWS cliente per il proprio utente IAM l'autenticazione MFA.
