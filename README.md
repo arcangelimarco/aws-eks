@@ -49,7 +49,7 @@ La documentazione è composta da quattro documenti:
 - il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.  
 
 ## Nota
-Si è accennato di automatizzare il processo con Jenkins per permettere a quest'ultimo di far da trigger per il CodeBuild AWS. In questo modo eseguendo la build del Jenkins job si avrebbero in modo automatico gli artifact e la docker image.  
+Si è accennato di automatizzare il processo con Jenkins per permettere a quest'ultimo di far da trigger per il CodeBuild AWS. In questo modo eseguendo la build del Jenkins job si avrebbero in modo automatico gli artifact e la docker image delle applicazioni.  
 In questo caso, il cliente metterà a disposizione il codice pipeline da caricare poi nel Jenkins master server.  
 
 ## Importante
