@@ -62,7 +62,7 @@ docker stop <CONTAINER ID>
 docker rm <CONTAINER ID>
 ```
 
-Dopo, rimuovere l'immagine:  
+Quando non più necessaria, rimuovere l'immagine:  
 ```
 docker images
 REPOSITORY                                             TAG                 IMAGE ID            CREATED             SIZE
@@ -117,8 +117,7 @@ spec:
                 servicePort: 80
 ```
 
-Per visualizzare sul nostro PC la pagina dell'applicazione prendiamo l'indirizzo dell'ALB, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
-Riconoscibile dai tag:
+Per visualizzare sul nostro PC la pagina dell'applicazione prendiamo l'indirizzo dell'ALB, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS, riconoscibile dai tag:  
 ```
 ingress.k8s.aws/stack                   <namespace>/<namespace>-alb-ingress
 kubernetes.io/ingress-name              <namespace>-alb-ingress
