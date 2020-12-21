@@ -2,7 +2,7 @@
 
 ## Installazione kubectl
 
-Si noti che in questo caso si è scaricata la versione 1.14.6.  
+Nel nostro caso si è scaricata la versione 1.14.6.  
 Per altre versioni seguire il link ufficiale aws:  
 https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html  
 
