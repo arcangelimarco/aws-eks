@@ -74,6 +74,49 @@ docker rmi <IMAGE ID>
 ## Connessione all'applicazione deployata
 
 Il tipo di porta utilizzata dalle applicazioni è NodePort.  
+Per connettersi a queste si è creato un ingress specificando le regole per la connessione a livello di "host", che deve essere uguale al campo "server_name" del file di configurazione di nginx presente nel repo bitbucket della rispettiva applicazione.  
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "<nome-ingress-apps>"
+  namespace: "<namespace>"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/success-codes: "200,302,403"
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=120
+  labels:
+    app: <nome-ingress-apps>
+spec:
+  rules:
+    - host: nome.app-1.it
+      http:
+         paths:
+            - path: /*
+              backend:
+                serviceName: <nome-service-app-1>
+                servicePort: 80
+    - host: nome.app-2.it
+      http:
+         paths:
+            - path: /*
+              backend:
+                serviceName: <nome-service-app-2>
+                servicePort: 80
+
+    ...
+    
+    - host: nome.app-n.it
+      http:
+         paths:
+            - path: /*
+              backend:
+                serviceName: <nome-service-app-n>
+                servicePort: 80
+```
+
 Per visualizzare sul nostro PC la pagina dell'applicazione prendiamo l'indirizzo dell'ALB, visibile nella pagina dei Load Balancer nella sezione EC2 della console AWS.  
 Riconoscibile dai tag:
 ```
@@ -85,7 +128,7 @@ ingress.k8s.aws/resource                LoadBalancer
 kubernetes.io/namespace                 <namespace>
 ```
 
-Aggiungiamo pertanto l'indirizzo pubblico del loadbalancer in combinazione con il nome dns dell'applicazione al file hosts del nostro PC.  
+Aggiungiamo pertanto l'indirizzo pubblico del loadbalancer in combinazione con il nome dns dell'applicazione al file hosts del nostro PC (campo "server_name" del file di configurazione di nginx).  
 Sotto si è preso come esempio l'IP 111.111.111.111  
 ```
 nslookup ******************************.sk1.eu-west-1.eks.amazonaws.com
@@ -101,7 +144,6 @@ Name:	******************************.sk1.eu-west-1.eks.amazonaws.com
 Address: 111.111.111.111
 ```
 
-Il "nome-dns-applicazione" può essere ricavato dalla configurazione di nginx.conf nel repository bitbucket cliente nel campo "server_name".  
 ```
 echo "******************************.sk1.eu-west-1.eks.amazonaws.com    <nome-dns-applicazione>" >> /etc/hosts
 curl -kv http://<nome-dns-applicazione>:80
