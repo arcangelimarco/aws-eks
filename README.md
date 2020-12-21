@@ -38,9 +38,11 @@ Scelta architetturale:
 
 Il tutto è bilanciato da un ALB che fa da ingress.
 
-La pipeline cliente è composta da:  
-- un project-artifact configurato su AWS CodeBuild collegato al repository bitbucket, si generano gli artifact e si caricano in AWS S3 (s3://cn-artifacts-repository),  
-- un project-build configurato su AWS CodeBuild collegato al docker repository bitbucket, si esegue la build del container dal Dockerfile e si esegue la push dell'immagine in ECR (che servirà ai manifest yaml delle applicazioni per il pull della stessa sul cluster EKS).  
+Per la creazione dell'infrastruttura del progetto si è scelto di creare degli script automatici usando due tools di IaaC, AWS CloudFormation e Terraform.
+In questo repository sono stati caricati tali script e in più il modulo per Fargate, anche se non utilizzato. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
+
+Per completezza si sono inseriti anche i passaggi per la creazione dell'infrastruttura da riga di comando.  
+A livello progettuale le pagine "PREREQUISITI" e "INSTALLAZIONE" sono pertanto in aggiunta, da consultare, se si vuole, solo per approfondimento personale.  
 
 La documentazione è composta da quattro documenti:  
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
@@ -49,6 +51,10 @@ La documentazione è composta da quattro documenti:
 - il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.  
 
 ## Nota
+La pipeline cliente è composta da:  
+- un project-artifact configurato su AWS CodeBuild collegato al repository bitbucket, si generano gli artifact e si caricano in AWS S3 (s3://cn-artifacts-repository),  
+- un project-build configurato su AWS CodeBuild collegato al docker repository bitbucket, si esegue la build del container dal Dockerfile e si esegue la push dell'immagine in ECR (che servirà ai manifest yaml delle applicazioni per il pull della stessa sul cluster EKS).  
+
 Si è accennato di automatizzare il processo con Jenkins per permettere a quest'ultimo di far da trigger per il CodeBuild AWS. In questo modo eseguendo la build del Jenkins job si avrebbero in modo automatico gli artifact e la docker image delle applicazioni.  
 In questo caso, il cliente metterà a disposizione il codice pipeline da caricare poi nel Jenkins master server.  
 
