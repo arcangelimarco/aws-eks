@@ -61,7 +61,7 @@ Una volta dentro il container esportare il file config di autenticazione al clus
 export KUBECONFIG="/opt/production"
 ```
 
-Nota: per gli altri ambienti, uat e development, il file sono rispettivamente "/opt/uat" e "/opt/development".  
+Nota: per gli altri ambienti, uat e development, i file sono rispettivamente "/opt/uat" e "/opt/development".  
 
 Verifica connessione:  
 ```
