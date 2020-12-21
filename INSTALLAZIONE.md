@@ -1,7 +1,7 @@
 # INSTALLAZIONE
 
 Per il progetto si è scelto di creare degli script automatici usando i tools IaaC AWS CloudFormation e Terraform.
-In questo repository sono stati caricati tali script e in più i moduli per Fargate, anche se non utilizzati. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
+In questo repository sono stati caricati tali script e in più il modulo per Fargate, anche se non utilizzato. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
 
 Riferimenti:  
 - CloudFormation:  
