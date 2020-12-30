@@ -15,9 +15,9 @@ Si troveranno due project, facilmente distinguibili dalla parola "artifacts" e "
 - nome-applicazione-build: build del container (cn-buonissimonatale-lci-wp-build).  
 
 Il primo serve per la creazione degli artifact, salvati in S3 sotto s3://cn-artifacts-repository/nome-applicazione (es. s3://cn-artifacts-repository/buonissimonatale-lci-wp/).  
-Il secondo serve per la build del container e la creazione dell'immagine nell'AWS ECR (non viene salvato nessun file in s3).  
+Il secondo serve per la build del container e la creazione dell'immagine nell'AWS ECR (non viene salvato nessun file in S3).  
 
-Per il deploy delle applicazioni i manifest yaml vengono caricati manualmente in s3 nel path s3://cn-configs-repository/eks/nome-applicazione (es. s3://cn-configs-repository/eks/buonissimonatale/).  
+Per il deploy delle applicazioni i manifest yaml vengono caricati manualmente in S3 nel path s3://cn-configs-repository/eks/nome-applicazione (es. s3://cn-configs-repository/eks/buonissimonatale/).  
 In questo path sono presenti i tre manifest (uno per ogni applicazione):  
 - deployment.yaml  
 - hpa.yaml  
@@ -32,7 +32,7 @@ In questo modo si esegue di nuovo la build selezionata.
 Una volta nella pagina principale del servizio accedere alla sezione "Repositories" presente nella parte di sinistra.  
 Cercare il nome dell'applicazione nell'apposita casella di search del servizio (es. buonissimonatale-lci-wp).  
 Selezionando il repositoy viene mostrata la lista di tutte le push delle immagini, ogununa con un tag diverso.  
-Fare click sulla scritta "Copy URI" nella quarta colonna denominata "Image URI" per copiare l'URI dell'immagine (comprensiva del tag).  
+Fare click sulla scritta "Copy URI" nella quarta colonna denominata "Image URI" per copiare l'URI dell'immagine (comprensiva del tag). Questa verrà usata nel manifest deployment.yaml della rispettiva applicazione.  
 
 ## AWS S3
 
