@@ -5,11 +5,11 @@
 AWS EKS è il servizio di containerizzazione offerto da AWS integrato con Kubernetes.  
 Documentazione sito AWS: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html  
 
-Scelta architetturale:  
+Scelta architetturale cliente Condè Nast:  
 
 1. Ambiente produzione
 	- Cluster EKS con 2 nodegroup (no Fargate)
-	  - ml-lci-appliers  
+	  - ml-lci-appliers (out of project, solo per test personali del cliente)  
 		Capacity type: On-Demand  
 		Minimum size:   1 nodes  
 		Maximum size:   2 nodes  
@@ -21,7 +21,7 @@ Scelta architetturale:
 		Desired size:   7 nodes  
 
 2. Ambiente uat
-	- Cluster EKS con 2 nodegroup (no Fargate)
+	- Cluster EKS con 1 nodegroup (no Fargate)
 	  - web  
 		Capacity type: On-Demand  
 		Minimum size:   1 nodes  
@@ -29,17 +29,17 @@ Scelta architetturale:
 		Desired size:   1 nodes  
 
 3. Ambiente development
-	- Cluster EKS con 2 nodegroup (no Fargate)
+	- Cluster EKS con 1 nodegroup (no Fargate)
 	  - web  
 		Capacity type: On-Demand  
 		Minimum size:   1 nodes  
 		Maximum size:   3 nodes  
 		Desired size:   1 nodes  
 
-Il tutto è bilanciato da un ALB che fa da ingress.
+Il tutto è bilanciato da un ALB gestito dal cliente che fa da ingress.
 
-Per la creazione dell'infrastruttura del progetto si è scelto di creare degli script automatici usando due tools di IaaC, AWS CloudFormation e Terraform.
-In questo repository sono stati caricati tali script e in più il modulo per Fargate, anche se non utilizzato. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
+Per la creazione dell'infrastruttura del progetto si è scelto di creare degli script automatici. Possono essere usati due tools di IaaC: AWS CloudFormation o, in alternativa, Terraform.  
+In questo repository sono stati caricati tali script. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
 
 Per completezza si sono inseriti anche i passaggi per la creazione dell'infrastruttura da riga di comando.  
 A livello progettuale le pagine "PREREQUISITI" e "INSTALLAZIONE" sono pertanto in aggiunta, da consultare, se si vuole, solo per approfondimento personale.  
@@ -54,9 +54,3 @@ La documentazione è composta da quattro documenti:
 La pipeline cliente è composta da:  
 - un project-artifact configurato su AWS CodeBuild collegato al repository bitbucket, si generano gli artifact e si caricano in AWS S3 (s3://cn-artifacts-repository),  
 - un project-build configurato su AWS CodeBuild collegato al docker repository bitbucket, si esegue la build del container dal Dockerfile e si esegue la push dell'immagine in ECR (che servirà ai manifest yaml delle applicazioni per il pull della stessa sul cluster EKS).  
-
-Si è accennato di automatizzare il processo con Jenkins per permettere a quest'ultimo di far da trigger per il CodeBuild AWS. In questo modo eseguendo la build del Jenkins job si avrebbero in modo automatico gli artifact e la docker image delle applicazioni.  
-In questo caso, il cliente metterà a disposizione il codice pipeline da caricare poi nel Jenkins master server.  
-
-## Importante
-Per policy, abilitare nell'ambiente AWS cliente per il proprio utente IAM l'autenticazione MFA.
