@@ -1,4 +1,4 @@
-# INSTALLAZIONE
+# INSTALLAZIONE (per test in ambiente AWS Sinthera)
 
 Riferimenti:  
 - CloudFormation:  
