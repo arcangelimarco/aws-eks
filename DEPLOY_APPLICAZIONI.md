@@ -4,20 +4,20 @@ La pipeline cliente presenta un Dockerfile nei repository bitbucket che viene bu
 I file vengono estratti dal servizio di storage object S3.  
 
 Sotto sono riportati i path e i nomi dei vari file yaml delle applicazioni presenti in S3 da deployare sul cluster EKS:  
-- s3://cn-configs-repository/eks/<nome-applicazione>  
-  - deployment.yaml  
-  - service.yaml  
-  - hpa.yaml  
+- s3://cn-configs-repository/eks/nome-applicazione  
+  - deployment.yaml: scarica l'immagine dall'ECR di AWS,  
+  - hpa.yaml: horizontal pod authoscaling per scalare i pod delle applicazioni,  
+  - service.yaml: esposizione del servizio.  
 
 Un esempio dei tre file yaml è presente in questo repository nella directory "deploy-yaml-applicazione-esempio".  
 
 Parametri d'interesse:  
-- deployment.yaml  
+- deployment.yaml
   - replicas: informazione data dal cliente, per alcune applicazioni può variare,  
   - il nome dell'applicazione: informazione data dal cliente,  
   - il nome del namespace in cui giace l'applicazione: websites per tutte le applicazioni,  
-  - IMAGE_PLACEHOLDER: l'image URI facilmente reperibile dal servizio ECR della console AWS.  
-  Si noti che dopo ogni build applicativo l'image URI cambia, quindi assicurarsi sempre di prendere l'URI più recente.  
+  - IMAGE_PLACEHOLDER: l'image URI facilmente reperibile dal servizio ECR della console AWS con il tag dell'ultima release.  
+  Si noti che dopo ogni build applicativo il tag dell'ultima release cambia, quindi assicurarsi sempre di prendere l'URI con il tag più recente.  
   Nota importante: il path /ping nelle sezioni livenessProbe e readinessProbe dev'essere congruo con il path inserito nel repo bitbucket cliente. Se diverso, apportare la modifica nel repository e re-buildare il tutto, con conseguente modifica dell'IMAGE_PLACEHOLDER.  
 - service.yaml  
   - il nome dell'applicazione: informazione data dal cliente,  
@@ -144,6 +144,6 @@ Address: 111.111.111.111
 ```
 
 ```
-echo "******************************.sk1.eu-west-1.eks.amazonaws.com    <nome-dns-applicazione>" >> /etc/hosts
+echo "111.111.111.111"    <nome-dns-applicazione>" >> /etc/hosts
 curl -kv http://<nome-dns-applicazione>:80
 ```
