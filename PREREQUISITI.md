@@ -1,5 +1,10 @@
 # PREREQUISITI
 
+In questa sezione elenchiamo i prerequisiti lato client.  
+
+## Importante
+Per policy, il cliente richeide di abilitare per il proprio utente IAM l'autenticazione MFA.  
+
 ## Installazione kubectl
 
 Nel nostro caso si è scaricata la versione 1.14.6.  
