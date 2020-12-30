@@ -44,11 +44,12 @@ In questo repository sono stati caricati tali script. Si posso trovare nelle dir
 Per completezza si sono inseriti anche i passaggi per la creazione dell'infrastruttura da riga di comando.  
 A livello progettuale le pagine "PREREQUISITI" e "INSTALLAZIONE" sono pertanto in aggiunta, da consultare, se si vuole, solo per approfondimento personale.  
 
-La documentazione è composta da quattro documenti:  
+La documentazione è composta da cinque documenti:  
 - il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
 - il secondo "INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
 - il terzo "CONNESSIONE_EKS" dove sono elencati i passi per connettersi al cluster EKS,  
-- il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS.  
+- il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS,  
+- il quinto "OPERATIVITA_AWS_CLIENTE" dov'è descritto l'ambiente AWS cliente e i servizi usati.  
 
 ## Nota
 La pipeline cliente è composta da:  
