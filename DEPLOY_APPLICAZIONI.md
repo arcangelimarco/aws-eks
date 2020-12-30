@@ -19,14 +19,14 @@ Parametri d'interesse:
   - IMAGE_PLACEHOLDER: l'image URI facilmente reperibile dal servizio ECR della console AWS con il tag dell'ultima release.  
   Si noti che dopo ogni build applicativo il tag dell'ultima release cambia, quindi assicurarsi sempre di prendere l'URI con il tag più recente.  
   Nota importante: il path /ping nelle sezioni livenessProbe e readinessProbe dev'essere congruo con il path inserito nel repo bitbucket cliente. Se diverso, apportare la modifica nel repository e re-buildare il tutto, con conseguente modifica dell'IMAGE_PLACEHOLDER.  
-- service.yaml  
-  - il nome dell'applicazione: informazione data dal cliente,  
-  - il nome del namespace in cui giace l'applicazione:  websites per tutte le applicazioni.  
 - hpa.yaml  
   - minReplicas: deve essere congruente con le replicas del deployment.yaml, non causa errori l'incongruenza, ma è per avere una situazione più corretta possibile,  
   - maxReplicas: informazione data dal cliente, per alcune applicazioni può variare,  
   - il nome dell'applicazione: informazione data dal cliente,  
   - il nome del namespace in cui giace l'applicazione: websites per tutte le applicazioni.  
+- service.yaml  
+  - il nome dell'applicazione: informazione data dal cliente,  
+  - il nome del namespace in cui giace l'applicazione:  websites per tutte le applicazioni.  
 
 ## Scaricare i file yaml da s3  
 
