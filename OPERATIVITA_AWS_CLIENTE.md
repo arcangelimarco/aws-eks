@@ -41,9 +41,10 @@ Buckets interessati:
 - s3://cn-configs-repository/eks/
 
 Una volta nella pagina principale del servizio accedere alla sezione "Buckets" presente nella parte di sinistra.  
-Cercare nell'apposita casella di search del servizio la parola "repository". Si ottengono i due buckets:  
+Cercare nell'apposita casella di search del servizio la parola "repository".
+Si ottengono i due buckets:  
 - cn-artifacts-repository: contiene gli artifacts delle applicazioni (scaturite dall'avvio del project CodeBuild "nome-applicazione-create-artifacts"),  
-- cn-configs-repository: contiene sotto la directory "eks" i manifest yaml che si caricano manualmente.  
+- cn-configs-repository: contiene sotto la directory "eks" i manifest yaml delle varie applicazioni (si caricano manualmente).  
 
 ## Lista delle applicazioni migrate su EKS
 
