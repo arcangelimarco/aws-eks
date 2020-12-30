@@ -9,7 +9,7 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_
 
 
 Di seguito è descritta la procedura manuale per l'installazione di un cluster EKS senza l'utilizzo di script già preconfigurati.  
-Questi passi, come già accennato, sono stati eseguiti nell'ambiente di test AWS Sinthera per comprendere appieno il servizio EKS.  
+Questi passi, come già accennato, sono stati eseguiti nell'ambiente di test AWS Sinthera e non in quello cliente.  
 Risultano pertanto out of scope del progetto, in quanto l'infrastruttura è stata creata con toll IaaC.  
 
 ## Creazione del master eks senza node-group
