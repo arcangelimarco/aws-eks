@@ -48,8 +48,10 @@ Si ottengono i due buckets:
 
 ## Lista delle applicazioni migrate su EKS
 
+Il link Sharepoint al file excel contenente le applicazioni del progetto si trova sotto:  
+https://sinthera.sharepoint.com/tecnici/Documenti/Forms/AllItems.aspx?viewid=e06fe87c%2D805e%2D4326%2Db40d%2Dcee46c288d9a&id=%2Ftecnici%2FDocumenti%2FClienti%2FConde%20Nast  
 Sotto sono elencati i nomi delle applicazioni presenti in s3://cn-configs-repository/eks/.  
-Sotto a questi è elencata la discriminante per le host rules dell'ingress (campo server_name del file nginx.conf nei repo cliente):  
+Sotto a questi è elencata la discriminante per le host rules dell'ingress (campo server_name del file nginx.conf nei repo cliente).
 
 - polls  
   - polls.glamour.it  
