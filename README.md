@@ -38,7 +38,7 @@ Scelta architetturale cliente Condè Nast:
 
 Il tutto è bilanciato da un ALB gestito dal cliente che fa da ingress.
 
-Per la creazione dell'infrastruttura del progetto si è scelto di creare degli script automatici.  
+Per la creazione dell'infrastruttura del progetto si è scelto di creare degli script di automazione.  
 Possono essere usati due IaaC tools: AWS CloudFormation o, in alternativa, Terraform.  
 In questo repository sono stati caricati tali script. Si posso trovare nelle directories "CloudFormation" e "Terraform".  
 
@@ -47,12 +47,12 @@ Per completezza si sono inseriti anche i passaggi per la creazione dell'infrastr
 A livello progettuale le pagine "PREREQUISITI" e "INSTALLAZIONE" sono pertanto in aggiunta, da consultare, se si vuole, solo per approfondimento personale.  
 
 ## Documentazione
-La documentazione è composta da cinque documenti:  
-- il primo "PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
-- il secondo "INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
-- il terzo "CONNESSIONE_EKS" dove sono elencati i passi per connettersi al cluster EKS,  
-- il quarto "DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS,  
-- il quinto "OPERATIVITA_AWS_CLIENTE" dov'è descritto l'ambiente AWS cliente e i servizi usati.  
+La documentazione è composta da cinque parti:  
+- "1_PREREQUISITI" dove sono elencati i prerequisiti e le configurazioni necessarie,  
+- "2_INSTALLAZIONE" dove sono elencati i passi per installare il cluster EKS,  
+- "3_CONNESSIONE_EKS" dove sono elencati i passi per connettersi al cluster EKS,  
+- "4_DEPLOY_APPLICAZIONI" dove sono elencati i passi per deployare le applicazioni nel cluster EKS,  
+- "5_OPERATIVITA_AWS_CLIENTE" dov'è descritto l'ambiente AWS cliente e i servizi usati.  
 
 ## Pipeline cliente
 La pipeline cliente è composta da:  
