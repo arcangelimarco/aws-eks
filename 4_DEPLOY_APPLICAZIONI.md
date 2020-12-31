@@ -124,7 +124,7 @@ ingress.k8s.aws/resource                LoadBalancer
 kubernetes.io/namespace                 <namespace>
 ```
 
-Aggiungiamo pertanto l'indirizzo pubblico del loadbalancer in combinazione con il nome dns dell'applicazione al file hosts del nostro PC (campo "server_name" del file di configurazione di nginx).  
+Aggiungiamo pertanto l'indirizzo pubblico del loadbalancer in combinazione con il nome dns dell'applicazione (nome.app-n.it) al file hosts del nostro PC (campo "server_name" del file di configurazione di nginx).  
 Sotto si è preso come esempio l'IP 111.111.111.111  
 ```
 nslookup ******************************.sk1.eu-west-1.eks.amazonaws.com
@@ -141,6 +141,6 @@ Address: 111.111.111.111
 ```
 
 ```
-echo "111.111.111.111"    <nome-dns-applicazione>" >> /etc/hosts
+echo "111.111.111.111"    <nome.app-n.it>" >> /etc/hosts
 curl -kv http://<nome-dns-applicazione>:80
 ```
